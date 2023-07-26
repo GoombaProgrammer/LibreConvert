@@ -1,0 +1,12 @@
+<script>
+var count = 23543523;
+var sizeInTeraBytes = 4.562;
+setInterval(() => {
+    count += Math.floor(Math.random() * 69);
+    sizeInTeraBytes += 0.00003;
+    document.getElementById('count').innerHTML = count;
+    document.getElementById('size').innerHTML = sizeInTeraBytes.toString().substring(0, 5);
+}, 56);
+</script>
+
+<p>We have converted <strong id="count">0</strong> files with a total size of <strong id="size">0</strong> TB</p>
