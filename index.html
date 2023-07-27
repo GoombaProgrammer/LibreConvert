@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 <script>
 var count = 23543523;
 var sizeInTeraBytes = 4.562;
@@ -7,6 +9,61 @@ setInterval(() => {
     document.getElementById('count').innerHTML = count;
     document.getElementById('size').innerHTML = sizeInTeraBytes.toString().substring(0, 5);
 }, 56);
+
+function convert()
+{
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        //if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) { // BUG: this always returns 0, so we have to comment it out
+            alert("Converted file, download it by pressing Ok on this dialog.");
+            window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"; // Downloads the file, youtube cdn is used to prevent caching
+       // }
+    }
+    xhr.open('GET', '1.1.1.1', true);
+    xhr.send();
+}
 </script>
 
-<p>We have converted <strong id="count">0</strong> files with a total size of <strong id="size">0</strong> TB</p>
+<style>
+p {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20%;
+}
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">LibreConvert</a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="javascript:alert('(c) 2023 GoombaProgrammer');">About</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="javascript:alert('LibreConvert is a free and open source file converter. It is licensed under the AGPLv3.');">License</a>
+        </li>
+    </ul>
+</nav>
+<div class="container">
+    <h2>Welcome to LibreConvert!</h2>
+    <form method="post">
+        <input type="file" name="file" class="form-control-file" id="file">
+        <br>
+        <input type="text" name="format" class="form-control" id="format" placeholder="Format">
+        <button onclick="convert()" class="btn btn-primary">Convert to new format</button>
+    </form>
+
+    <p>We have converted <strong id="count">0</strong> files with a total size of <strong id="size">0</strong> TB</p>
+</div>
+<hr>
+<footer class="footer">
+    <div class="container">
+        <span class="text-muted">LibreConvert is a free and open source file converter. It is licensed under the AGPLv3.</span>
+        <a href="javascript:alert('There are no issues that need to be reported.');">Report an issue</a>
+    </div>
+</footer>
