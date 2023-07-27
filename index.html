@@ -16,7 +16,11 @@ function convert()
     xhr.onreadystatechange = function() {
         //if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) { // BUG: this always returns 0, so we have to comment it out
             alert("Converted file, download it by pressing Ok on this dialog.");
-            window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"; // Downloads the file, youtube cdn is used to prevent caching
+            // Check if we are on github pages or not
+            if (window.location.href.indexOf("github.io") > -1)
+                alert("Too many requests, please run this on your own server.");
+            else
+                window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"; // Downloads the file, youtube cdn is used to prevent caching
        // }
     }
     xhr.open('GET', '1.1.1.1', true);
